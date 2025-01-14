@@ -1,0 +1,50 @@
+/*---Кнопки---*/
+button {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 50px;
+    border: 2px solid #EEE;
+    border-radius: 50px;
+    height: 60px;
+    line-height: 46px;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 3px 5px 5px rgb(0 0 0 / 10%);
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    transition: box-shadow 0.2s;
+	margin: 20px 100px 15px 100px;
+}
+
+#logInMF button {
+    margin: 20px 20px 15px 20px;
+}
+
+button:focus-visible {
+	border: 1px solid #4c51f9;
+	outline: none;
+}
+
+button:hover {
+	transition: all 0.2s;
+	box-shadow: 5px 8px 8px rgb(0 0 0 / 30%);
+}
+
+button:active {
+	background-color: #DDD;
+}
+
+button:disabled {
+	background-color: #eee;
+	border-color: #eee;
+	color: #444;
+	cursor: not-allowed;
+}
+
+.delete {
+    background-color: Seashell;
+    color: brown;
+}
