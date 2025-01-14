@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Читатели</title>
+
+    <link rel="stylesheet" type="text/css" href="css/base_style.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons_style.css">
+
+    <!-- Глобальные переменные внутри скриптов -->
+    <script th:inline="javascript">
+        var chosenRow = null;
+    </script>  
+
+    <script th:inline="javascript" type="module" src="javaScript/Init.js"></script>
+</head>
+<body>
+    <div id="topBar">
+        <h3><a href="..">Назад</a></h3>
+    </div>
+    <br>
+    <table border="1" class="table" id="mainTable" name="reader" d_PKName="id">
+        <thead>
+        <tr class="attributes">
+            <!-- Заголовки таблицы -->
+            <th name="name" d_updateType="manual" >
+                Имя читателя
+            </th>
+            <th name="phone" d_updateType="manual" >
+                Номер телефона
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Тело таблицы, заполняется в Init.js -->
+        </tbody>
+    </table>
+
+    <div class="mainButtons">
+        <button type="button" name="delete" class="delete" id="deleteBtn">Удалить</button>
+        <button type="button" name="update" id="updateBtn">Редактировать</button>
+        <button type="button" name="insert" id="insertBtn">Добавить</button>
+    </div>
+
+    <!-- ___ Модальные окна ___ -->
+    <!-- Модальное окно редактирования -->
+    <dialog class="modal" id="updateRow">
+        <form>
+            <h2>Редактор записей</h2>
+
+            <table border="1" class="table" id="updateTable">
+                <!-- Таблица полностью заполняется автоматически-->
+            </table>
+
+            <button class="dialog_button" id="submit" formmethod="dialog">
+                Применить
+            </button>
+            <button class="dialog_button" id="cancel" formmethod="dialog">
+                Отмена
+            </button>
+        </form>
+    </dialog>
+
+    <!-- Модальное окно добавления записи -->
+    <dialog class="modal" id="insertRow">
+        <form>
+            <h2>Добавить нового читателя</h2>
+
+            <div>
+                <label>Введите имя читателя:</label>
+                <input type="text" d_dbName="name" d_inputType="manual" d_nullable="false" />
+            </div>
+            <div>
+                <label>Введите номер телефона:</label>
+                <input type="number" oninput="this.value = this.value.slice(0, 11)" d_dbName="phone" d_inputType="phone" d_nullable="false" />
+            </div>
+
+            <div style="text-align: center;">
+                <button type="button" name="submit" formmethod="dialog">
+                    Добавить
+                </button>
+                <button name="cancel">
+                    Отмена
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Модальное окно подтверждения удаления -->
+    <dialog class="modal" id="submitDeleting">
+        <form id="form">
+            <h2>Вы уверены, что желаете удалить запись?</h2>
+
+            <button name="submit" formmethod="dialog" class="delete">
+                Подтвердить
+            </button>
+            <button name="cancel" formmethod="dialog">
+                Отменить
+            </button>
+        </form>
+    </dialog>
+</body>
+</html>
